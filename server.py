@@ -1,12 +1,12 @@
 import base64
-from flask import Flask, request, send_from_directory, jsonify
+from flask import Flask, request, send_from_directory, jsonify, redirect, url_for
 from flask_cors import CORS
 import os
 import tempfile
 from werkzeug.utils import secure_filename
 from facedetection import process_video  # Assuming you've encapsulated your detection logic here
 
-app = Flask(__name__, static_folder='./build', static_url_path='')
+app = Flask(__name__, static_folder='./build')
 CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})
 
 # Assuming this route for handling the video processing
@@ -48,11 +48,10 @@ def process_video_route():
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def serve(path):
-     path_dir = os.path.abspath("./build") #path react build
-     if path != "" and os.path.exists(os.path.join(path_dir, path)):
-         return send_from_directory(os.path.join(path_dir), path)
-     else:
-         return send_from_directory(os.path.join(path_dir),'index.html')
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 if __name__ == '__main__':
     app.run(use_reloader=True, port=5173, threaded=True)
