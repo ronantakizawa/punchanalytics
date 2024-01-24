@@ -1,0 +1,7 @@
+{
+    "rewrites": [
+      { "source": "/", "destination": "/index.html" },
+      { "source": "/home", "destination": "/index.html" },
+      { "source": "/singleworkout", "destination": "/index.html" }
+    ]
+  }

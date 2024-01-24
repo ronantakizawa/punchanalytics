@@ -1,0 +1,7 @@
+[
+  {
+      "origin": ["http://localhost:5173", "https://powaanalytics.vercel.app/"],
+      "method": ["GET"],
+      "maxAgeSeconds": 3600
+  }
+]
