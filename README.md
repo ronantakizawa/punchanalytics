@@ -11,4 +11,5 @@ https://github.com/ronantakizawa/powaboxingcloud/assets/71115970/231e0246-5ca7-4
 
 Video Analysis on face guard:
 
+https://github.com/ronantakizawa/punchanalytics/assets/71115970/6814c3d4-b5e2-494e-8e99-945231102bac
 
